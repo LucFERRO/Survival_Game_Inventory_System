@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-public class Item : MonoBehaviour
+public abstract class Item : MonoBehaviour
 {
     public Sprite sprite;
     public int itemId;

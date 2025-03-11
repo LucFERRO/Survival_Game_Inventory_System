@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Equipment : Item
+public abstract class Equipment : Item
 {
     public int maxDurability;
     public int currentDurability;
