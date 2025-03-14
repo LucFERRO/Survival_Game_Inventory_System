@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class Food : Consumable
 {
-    public int hunterHeal;
+    public int hungerHeal;
 }

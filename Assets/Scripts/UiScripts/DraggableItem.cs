@@ -7,7 +7,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     Image image;
     CanvasGroup group;
-    Item item;
+    public Item item;
     public Transform parentAfterDrag;
 
     private void Start()
@@ -17,13 +17,20 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         item = GetComponent<Item>();
         image.sprite = item.sprite;
 
-        if (item.name == "Material" || item.name == "Consumable")
+        Material potentialMaterialItem = GetComponent<Material>();
+        Consumable potentialConsumableItem = GetComponent<Consumable>();
+
+        if (potentialMaterialItem != null || potentialConsumableItem != null)
         {
             HandleStackableItems();
         }
+
+        //if (item.name == "Material" || item.name == "Consumable")
+        //{
+        //}
     }
 
-    void HandleStackableItems()
+    public void HandleStackableItems()
     {
         transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"{item.currentStack} / {item.maxStack}";
     }

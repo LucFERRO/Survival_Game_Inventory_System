@@ -1,11 +1,23 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-public class GameData : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-
+    public Dictionary<int, string> materialDict = new Dictionary<int, string>();
+    public Dictionary<int, string> armorTypeDict = new Dictionary<int, string>();
+    public Dictionary<int, string> weaponTypeDict = new Dictionary<int, string>();
+    public Dictionary<int, string> potionEffectDict = new Dictionary<int, string>();
+    public Item chosenItem { 
+        get { return chosenItem; } 
+        set { 
+            chosenItem = value;
+            UpdatePreview(chosenItem);
+        } 
+    }
+    public GameObject itemDetails;
     [Header("Material List")]
     public string[] materialArray;
     [Header("ArmorPiece List")]
@@ -14,11 +26,6 @@ public class GameData : MonoBehaviour
     public string[] weaponTypeArray;
     [Header("PotionEffect List")]
     public string[] potionEffectArray;
-
-    public Dictionary<int, string> materialDict = new Dictionary<int, string>();
-    public Dictionary<int, string> armorTypeDict = new Dictionary<int, string>();
-    public Dictionary<int, string> weaponTypeDict = new Dictionary<int, string>();
-    public Dictionary<int, string> potionEffectDict = new Dictionary<int, string>();
 
     private void Start()
     {
@@ -32,7 +39,10 @@ public class GameData : MonoBehaviour
         //    Debug.Log(kvp);
         //}
     }
-
+    private void UpdatePreview(Item chosenItem)
+    {
+        throw new NotImplementedException();
+    }
     public string FirstLetterToUpper(string str)
     {
         if (str == null)
